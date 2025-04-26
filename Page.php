@@ -31,7 +31,7 @@ abstract class Page
     protected abstract function generateViewAll() : string;
     protected abstract function generateViewCreate() : string;
     // protected abstract function generateViewEdit() : string;
-    //protected abstract function addNew() : string;
+    protected abstract function addNew() : void;
     // protected abstract function edit() : string;
 
     protected function delete() : void {
@@ -72,7 +72,7 @@ abstract class Page
         <div class="row">
             <div class="col-sm-12">
                 <form method="POST">
-                    <button class="btn btn-primary"> Create new </button>
+                    <button class="btn btn-primary" name = "' . self::ACTION . '" value="' . self::CREATE_VIEW . '"> Create new </button>
                     <button class="btn btn-primary">All</button>
                 </form>
             </div>
@@ -98,7 +98,7 @@ abstract class Page
         $action = $_POST[self::ACTION] ?? null;
         switch ($action) {
             case self::AD_NEW:
-                //echo $this->addNew();
+                echo $this->addNew();
                 break;
 
             case self::EDIT:
@@ -106,7 +106,7 @@ abstract class Page
                 break;
 
             case self::CREATE_VIEW:
-                //echo $this->generateCreateView();
+                echo $this->generateViewCreate();
                 break;
 
             case self::EDIT_VIEW:
