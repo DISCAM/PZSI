@@ -30,9 +30,9 @@ abstract class Page
     protected abstract function enterModelDataFromForm() : void;
     protected abstract function generateViewAll() : string;
     protected abstract function generateViewCreate() : string;
-    // protected abstract function generateViewEdit() : string;
+    protected abstract function generateViewEdit() : string;
     protected abstract function addNew() : void;
-    // protected abstract function edit() : string;
+    protected abstract function edit() : void;
 
     protected function delete() : void {
         $id = $_POST['id'] ?? null;
@@ -53,7 +53,7 @@ abstract class Page
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-        Internal Events - Create
+        Internal Events and Task Create
     </title>
     
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -66,7 +66,7 @@ abstract class Page
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Internal Events - Create</h1>
+                <h1>Internal Events and Task - Create</h1>
             </div>
         </div>
         <div class="row">
@@ -102,7 +102,7 @@ abstract class Page
                 break;
 
             case self::EDIT:
-                //echo $this->edit();
+                echo $this->edit();
                 break;
 
             case self::CREATE_VIEW:
@@ -110,7 +110,7 @@ abstract class Page
                 break;
 
             case self::EDIT_VIEW:
-                //echo $this->generateEditView();
+                echo $this-> generateViewEdit();
                 break;
 
             case self::DELETE:
